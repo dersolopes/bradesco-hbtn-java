@@ -1,5 +1,3 @@
-package salario;
-
 public class Departamento {
 
     double valorMeta;

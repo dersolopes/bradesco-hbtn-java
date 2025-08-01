@@ -11,8 +11,3 @@ public class Program {
         System.out.println("umOutroAnimal eh um " + umOutroAnimal.getClass().getName());
     }
 }
-
-    meuAnimal eh um Animal
-    meuCachorro eh um Cachorro
-    objeto eh um Cachorro
-    umOutroAnimal eh um Cachorro

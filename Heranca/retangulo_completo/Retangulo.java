@@ -1,4 +1,3 @@
-package retangulo;
 public class Retangulo extends FormaGeometrica {
     private double largura;
     private double altura;
@@ -24,6 +23,12 @@ public class Retangulo extends FormaGeometrica {
         }
     }
 
+    @Override
+    public double area(){
+        return altura * largura;
+    }
 
-
+    public String toString(){
+        return String.format("[Retangulo] %.2f / %.2f", largura , altura);
+    }
 }

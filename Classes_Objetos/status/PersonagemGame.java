@@ -1,5 +1,3 @@
-package status;
-
 public class PersonagemGame {
 
     private int saudeAtual;

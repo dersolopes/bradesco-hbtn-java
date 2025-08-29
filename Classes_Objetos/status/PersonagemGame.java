@@ -13,7 +13,7 @@ public class PersonagemGame {
     public void tomarDano(int quantidadeDeDano){
 
         if (saudeAtual >= 0 && quantidadeDeDano <= saudeAtual) { // Caso o dano seja inferior a saude, o personagem tomara o dano
-            setSaudeAtual(quantidadeDeDano);
+            setSaudeAtual(this.saudeAtual - quantidadeDeDano);
         } else if (saudeAtual >= 0 && quantidadeDeDano >= saudeAtual){ // Caso o dano seja superior a saude, a saude ira para zero
             setSaudeAtual(0);
         }
@@ -22,7 +22,7 @@ public class PersonagemGame {
     public void receberCura (int quantidadeDeCura) {
 
         if ((saudeAtual + quantidadeDeCura) <= 100) {
-            setSaudeAtual(quantidadeDeCura);
+            setSaudeAtual(this.saudeAtual + quantidadeDeCura);
         } else if ((saudeAtual + quantidadeDeCura) >= 100) {
             setSaudeAtual(100);
         }

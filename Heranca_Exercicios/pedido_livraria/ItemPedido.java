@@ -1,9 +1,7 @@
-import produtos.Produto;
+import pedido_livraria.produtos.Produto;
 
 public class ItemPedido {
     private int quantidade;
-
-
     private Produto produto;
 
     public ItemPedido(Produto produto, int quantidade) {

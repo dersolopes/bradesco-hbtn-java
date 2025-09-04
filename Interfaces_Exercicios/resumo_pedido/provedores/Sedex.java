@@ -14,6 +14,13 @@ public class Sedex implements ProvedorFrete{
         else
             frete.valor = valor * 0.05;
 
+        frete.setTipoProvedorFrete(obterTipoProvedorFrete());
+
         return frete;
+    }
+
+    @Override
+    public TipoProvedorFrete obterTipoProvedorFrete() {
+        return TipoProvedorFrete.SEDEX;
     }
 }

@@ -9,7 +9,7 @@ public class Frete {
         this.valor = valor;
     }
 
-    public TipoProvedorFrete getTipoProvedorFrete() {
+    public TipoProvedorFrete obterTipoProvedorFrete() {
         return tipoProvedorFrete;
     }
 

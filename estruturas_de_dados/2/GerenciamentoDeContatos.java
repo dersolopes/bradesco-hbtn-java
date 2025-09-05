@@ -1,4 +1,5 @@
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 
 
@@ -8,7 +9,7 @@ public class GerenciamentoDeContatos {
 
     // Construtor
     public GerenciamentoDeContatos() {
-        contatos = new HashMap<>();
+        contatos = new LinkedHashMap<>();
     }
 
 
@@ -40,17 +41,13 @@ public class GerenciamentoDeContatos {
 
     // Exibe todos os contatos
     public void exibirContatos() {
-        // Para manter a ordem igual ao exemplo, podemos usar um stream ordenando pelo nome:
-        contatos.entrySet().stream()
-                .sorted(Map.Entry.comparingByKey())
-                .forEach(entry -> {
-                    String nome = entry.getKey();
-                    Contato contato = entry.getValue();
-                    System.out.println("Nome: " + nome);
-                    System.out.println("Telefones: " + contato.getTelefones());
-                    System.out.println("Emails: " + contato.getEmails());
-                    System.out.println("-------------------------------");
-                });
+        for (String nome : contatos.keySet()) {
+            Contato contato = contatos.get(nome);
+            System.out.println("Nome: " + nome);
+            System.out.println("Telefones: " + contato.getTelefones());
+            System.out.println("Emails: " + contato.getEmails());
+            System.out.println("-------------------------------");
+        }
     }
 
 
@@ -83,9 +80,10 @@ public class GerenciamentoDeContatos {
 
 
         // Adicionando contatos
-        gestao.adicionarContato("Carlos", "1234-5678", "carlos@email.com");
-        gestao.adicionarContato("Maria", "8765-4321", "maria@email.com");
+
         gestao.adicionarContato("Ana", "1122-3344", "ana@email.com");
+        gestao.adicionarContato("Maria", "8765-4321", "maria@email.com");
+        gestao.adicionarContato("Carlos", "1234-5678", "carlos@email.com");
         gestao.adicionarContato("Carlos", "1234-5678", "carlos@email.com"); // Tentando duplicar
 
 

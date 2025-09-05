@@ -71,18 +71,20 @@ public class Blog {
     // Acrescente o metodo obterTodosPostsPorCategorias:
     // retorne uma Map que a chave seja Categorias e o valor seja um Set com todos posts daquela categoria
     public Map<Categorias, Set<Post>> obterTodosPostsPorCategorias() {
-        Map<Categorias, Set<Post>> map = new HashMap<>();
+        Map<Categorias, Set<Post>> map = new LinkedHashMap<>(); // mantém a ordem de inserção DEVOPS → DESENVOLVIMENTO → DATA_SCIENCE:
+        map.put(Categorias.DEVOPS, new TreeSet<>());
+        map.put(Categorias.DESENVOLVIMENTO, new TreeSet<>());
+        map.put(Categorias.DATA_SCIENCE, new TreeSet<>());
+
         for (Post post : postagens) {
-            if (!map.containsKey(post.getCategoria())) {
-                map.put(post.getCategoria(), new TreeSet<>());
-            }
             map.get(post.getCategoria()).add(post);
         }
+
         return map;
     }
 
-    //Acrescente o metodo obterTodosPostsPorAutor:
-    // retorne uma Map que a chave seja Autor e o valor seja um Set com todos posts daquela categoria
+    // Acrescente o metodo obterTodosPostsPorAutor:
+    // Retorne um Map que a chave seja Autor e o valor seja um Set com todos posts daquele autor
     public Map<Autor, Set<Post>> obterTodosPostsPorAutor() {
         // USAR TreeMap para que os autores fiquem ordenados pelo Comparable implementado na classe Autor
         Map<Autor, Set<Post>> map = new TreeMap<>();
@@ -96,11 +98,12 @@ public class Blog {
             map.get(post.getAutor()).add(post);
         }
 
-        // obs: Substituí HashMap por TreeMap para que os autores fiquem ordenados automaticamente pelo Comparable implementado na classe Autor,
+        // Obs: Substituí HashMap por TreeMap para que os autores fiquem ordenados automaticamente pelo Comparable implementado na classe Autor,
         // garantindo que a saída bata com o esperado: Jane Doe, John Bannons, Peter Dirkly.
 
         return map;
     }
+
 
 //    List<Post>
 //      → adiciona

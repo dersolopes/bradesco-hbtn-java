@@ -64,34 +64,24 @@ public class Blog {
     public Map<Categorias, Set<Post>> obterTodosPostsPorCategorias() {
         Map<Categorias, Set<Post>> map = new HashMap<>();
         for (Post post : postagens) {
-
-            Set<Post> posts = new TreeSet<>();
             if (!map.containsKey(post.getCategoria())) {
-                map.put(post.getCategoria(), posts);
+                map.put(post.getCategoria(), new TreeSet<>());
             }
-
-            map.put(post.getCategoria(), posts);
-
-            posts.add(post);
+            map.get(post.getCategoria()).add(post);
         }
         return map;
     }
-
 
     //Acrescente o metodo obterTodosPostsPorAutor:
     // retorne uma Map que a chave seja Autor e o valor seja um Set com todos posts daquela categoria
     public Map<Autor, Set<Post>> obterTodosPostsPorAutor() {
         Map<Autor, Set<Post>> map = new HashMap<>();
         for (Post post : postagens) {
-
-            Autor autorChave = new Autor(post.getAutor().getNome(), post.getAutor().getSobrenome());
-
-
-            map.put(autorChave, new TreeSet<>());
-            map.get(autorChave).add(post);
-            return map;
+            if (!map.containsKey(post.getAutor())) {
+                map.put(post.getAutor(), new TreeSet<>());
+            }
+            map.get(post.getAutor()).add(post);
         }
-
         return map;
     }
 }

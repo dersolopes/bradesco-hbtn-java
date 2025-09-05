@@ -16,14 +16,14 @@ public class Livro {
     // recebe String
     // retorna true or false
     public static boolean validacaoQtdeSpaces(String nome){
-        return (nome != null) && (!nome.isEmpty()) && (nome.indexOf(" ") >= 1);
+        return (nome != null) && (!nome.isEmpty()) && (nome.trim().indexOf(" ") >= 1);
     }
 
     // este metodo verifica se o titulo do livro possui menos 3 caracteres
     // recebe String
     // retorna true or false
     public static boolean validacaoQtdeCarac(String titulo){
-        return (titulo != null) && (titulo.length() >= 3);
+        return (titulo != null) && (titulo.trim().length() >= 3);
     }
 
     //getters and setters

@@ -3,7 +3,7 @@ import java.util.List;
 import java.util.function.Predicate;
 
 public class ConsultaProdutos {
-    static List<Produto> filtrar(List<Produto> produtos, Predicate<Produto> criterio) {
+    public static List<Produto> filtrar(List<Produto> produtos, Predicate<Produto> criterio) {
         List<Produto> produtosFiltrados = new ArrayList<>();
         for (Produto produto : produtos) {
             if (criterio.test(produto)) {

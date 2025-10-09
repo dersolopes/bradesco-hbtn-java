@@ -62,7 +62,7 @@ public class Pessoa implements Comparable<Pessoa> {
     // Implementa do Comparable, permitindo armazenar objetos em TreeSet (ordenados pelo codigo).
     @Override
     public int compareTo(Pessoa outra) {
-        return Integer.compare(this.codigo, outra.codigo);         // Ordenar por código (como mostra o sysout do exercicio)
+        return this.nome.compareTo(outra.nome);         // Ordenar por nome (como mostra o sysout do exercicio)
     }
 
 }

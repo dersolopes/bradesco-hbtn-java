@@ -49,7 +49,9 @@ public class ConsultaPessoas {
                         Pessoa::getCargo,
                         Collectors.flatMapping(
                                 p -> p.getHobbies().stream(), // transforma a lista de hobbies em Stream
-                                Collectors.toCollection(TreeSet::new) // coleta em TreeSet para ordenar e eliminar duplicatas
+                                Collectors.toCollection(TreeSet::new) // Coleta em TreeSet para:
+                                                                        // Ordenar os hobbies alfabeticamente
+                                                                        // remover duplicatas
                         )
                 ));
     }

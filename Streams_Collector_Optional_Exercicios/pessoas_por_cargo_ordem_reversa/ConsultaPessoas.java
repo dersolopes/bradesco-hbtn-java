@@ -3,12 +3,12 @@ import java.util.stream.Collectors;
 
 public class ConsultaPessoas {
 
-    public static TreeMap<String, TreeSet<Pessoa>> obterPessoasAgrupadasPorCargoEmOrdemReversa(List<Pessoa> todasPessoas) {
-        return todasPessoas.stream()
+    public static TreeMap<String, TreeSet<Pessoa>> obterPessoasAgrupadasPorCargoEmOrdemReversa(List<Pessoa> pessoas) {
+        return pessoas.stream()
                 .collect(Collectors.groupingBy(
                         Pessoa::getCargo, // Agrupa pessoas pelo cargo.
-                        () -> new TreeMap<>(Comparator.reverseOrder()), // TreeMap com ordem reversa das chaves
-                        Collectors.toCollection(TreeSet::new)          // Cada grupo é armazenado em TreeSet, garantindo ordenação natural (Comparable) das pessoas.
+                        () -> new TreeMap<>(Comparator.reverseOrder()), // ordem reversa dos cargos
+                        Collectors.toCollection(TreeSet::new) //// Cada grupo é armazenado em TreeSet, 'pessoas' ordenadas pelo compareTo
                 ));
     }
 
